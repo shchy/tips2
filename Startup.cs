@@ -1,4 +1,7 @@
 
+using System;
+using Microsoft.AspNet.Builder;
+using Nancy.Owin;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -7,9 +10,6 @@ using tips2.Models;
 
 namespace tips2
 {
-    using Microsoft.AspNet.Builder;
-    using Nancy.Owin;
-
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
@@ -17,16 +17,10 @@ namespace tips2
             services.AddEntityFramework()
               .AddSqlite()
               .AddDbContext<ModelContext>();
-
-            // Add framework services.
-            // services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            //loggerFactory.AddDebug();
-
             app.UseOwin(x => x.UseNancy());
         }
 

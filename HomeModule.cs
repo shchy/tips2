@@ -1,22 +1,25 @@
 using System;
 using System.Linq;
+using Nancy;
 using tips2.Models;
 
 namespace tips2
 {
-    using Nancy;
-
     public class HomeModule : NancyModule
     {
+        private ModelContext context;
+
         public HomeModule(ModelContext context)
         {
-            context.Tests.Add(new Test{ Name = DateTime.Now.ToString() });
-            context.SaveChanges();
+            this.context = context;
 
             Get["/"] = _ =>
             {
-              var t = context.Tests.First();
-              return "Hello World" + t.Id;
+                this.context.Tests.Add(new Test{ Name = DateTime.Now.ToString() });
+                this.context.SaveChanges();
+
+                var t = this.context.Tests.Last();
+                return "Hello World" + t.Id;
             };
         }
     }

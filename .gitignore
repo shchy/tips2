@@ -234,7 +234,7 @@ _Pvt_Extensions
 .fake/
 
 .DS_Store
-test.sqlite
+*.sqlite
 Migrations/
 Migrations/*
 
