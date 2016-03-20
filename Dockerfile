@@ -7,6 +7,7 @@ RUN ["dnu", "restore"]
 RUN ["dnx", "ef", "migrations", "add", "first"]
 
 CMD ["dnx", "ef", "database", "update"]
+CMD ["dnx", "-p", "project.json", "web"]
 
 EXPOSE 5000
-ENTRYPOINT ["dnx", "-p", "project.json", "web"]
+ENTRYPOINT ["/bin/bash"]

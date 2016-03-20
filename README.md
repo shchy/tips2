@@ -7,10 +7,11 @@ dnx ef database update
 dnx web  
 ```
 
-# run on docker 
+# run on docker
 ```
 git clone https://github.com/shchy/tips2.git
 cd tips2
 docker build -t tips2 .
-docker run -d -p 80:5000 tips2
+mkdir /var/lib/sqlite
+docker run -d -p 80:5000 -v /var/lib/sqlite:/app/data tips2
 ```
