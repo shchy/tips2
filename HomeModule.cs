@@ -19,7 +19,7 @@ namespace tips2
                 this.context.SaveChanges();
 
                 var t = this.context.Tests.Last();
-                return "Hello World" + t.Id;
+                return "Hello World From Docker!" + t.Id;
             };
         }
     }
