@@ -1,3 +1,3 @@
 {
-    "connection": "Data Source=db.sqlite"
+    "connection": "Data Source=data/db.sqlite"
 }
