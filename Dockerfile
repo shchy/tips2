@@ -6,6 +6,6 @@ WORKDIR /app
 RUN ["dnu", "restore"]
 RUN ["dnx", "ef", "migrations", "add", "first"]
 
-
 EXPOSE 5000
-CMD dnx ef database update && dnx -p project.json web
+CMD dnx ef database update && \
+    dnx -p project.json web
