@@ -16,4 +16,4 @@ mkdir /var/lib/sqlite
 docker run -d -p 80:5000 -v /var/lib/sqlite:/app/data tips2
 ```
 
-jenkins build test
+jenkins build test 2
