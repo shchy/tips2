@@ -1,9 +1,15 @@
 machine:
+    timezone:
+        Asia/Tokyo
     services:
         - docker
-dependencies:
 
+dependencies:
+    cache_directories:
+        - "~/cache"
+    pre:
+        - docker build -t tips .
 
 test:
-  override:
-    - 0
+    override:
+        - docker run -rm tips dnx -p test/TipsWeb.test/project.json test
