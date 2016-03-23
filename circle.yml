@@ -12,4 +12,4 @@ dependencies:
 
 test:
     override:
-        - docker run -rm tips dnx -p test/TipsWeb.test/project.json test
+        - docker run tips dnx -p test/TipsWeb.test/project.json test
