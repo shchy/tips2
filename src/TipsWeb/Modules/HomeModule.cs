@@ -19,7 +19,9 @@ namespace tips2.Modules
                 this.context.SaveChanges();
 
                 var t = this.context.Tests.Last();
-                return "Hello World From Docker!" + t.Id;
+                var result = "Hello World From Docker!" + t.Id;
+
+                return View["Views/Root"];
             };
         }
     }
