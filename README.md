@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/shchy/tips2.svg?style=svg)](https://circleci.com/gh/shchy/tips2)
+
 # run on local
 ```
 mkdir data  
