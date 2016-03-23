@@ -3,7 +3,7 @@ using System.Linq;
 using Nancy;
 using tips2.Models;
 
-namespace tips2
+namespace tips2.Modules
 {
     public class HomeModule : NancyModule
     {

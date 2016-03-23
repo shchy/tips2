@@ -2,9 +2,9 @@
 ```
 mkdir data  
 dnu restore  
-dnx ef migrations add SqliteMigrations  
-dnx ef database update  
-dnx web  
+dnx -p src/TipsWeb/project.json ef migrations add SqliteMigrations  
+dnx -p src/TipsWeb/project.json ef database update  
+dnx -p src/TipsWeb/project.json web  
 ```
 
 # run on docker
@@ -15,5 +15,3 @@ docker build -t tips2 .
 mkdir /var/lib/sqlite
 docker run -d -p 80:5000 -v /var/lib/sqlite:/app/data tips2
 ```
-
-jenkins build test 2

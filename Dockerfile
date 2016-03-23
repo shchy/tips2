@@ -4,8 +4,8 @@ COPY . /app
 WORKDIR /app
 
 RUN ["dnu", "restore"]
-RUN ["dnx", "ef", "migrations", "add", "first"]
+RUN ["dnx", "-p", "src/TipsWeb/project.json", "ef", "migrations", "add", "first"]
 
 EXPOSE 5000
-CMD dnx ef database update && \
-    dnx -p project.json web
+CMD dnx -p src/TipsWeb/project.json ef database update && \
+    dnx -p src/TipsWeb/project.json web
