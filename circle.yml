@@ -8,8 +8,15 @@ dependencies:
     cache_directories:
         - "~/cache"
     pre:
-        - docker build -t tips .
+        - docker build -t shchy/tips .
 
 test:
     override:
-        - docker run tips dnx -p test/TipsWeb.test/project.json test -parallel none
+        - docker run shchy/tips dnx -p test/TipsWeb.test/project.json test -parallel none
+
+deployment:
+    hub:
+        branch: master
+        commands:
+            - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            - docker push shchy/tips
