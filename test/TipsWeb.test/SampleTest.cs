@@ -28,8 +28,8 @@ namespace test
         public void TestTest()
         {
             var t = new A();
-            t.Name = "unko";
-            Assert.Equal("unkoo", t.Name);
+            t.Name = "test";
+            Assert.Equal("test", t.Name);
         }
 
         int Add(int x, int y)
