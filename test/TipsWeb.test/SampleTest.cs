@@ -29,7 +29,7 @@ namespace test
         {
             var t = new A();
             t.Name = "unko";
-            Assert.Equal("unko", t.Name);
+            Assert.Equal("unkoo", t.Name);
         }
 
         int Add(int x, int y)
