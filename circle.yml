@@ -17,14 +17,16 @@ dependencies:
     pre:
         - mkdir -p $DNX_CACHE
         - docker build --build-arg tag=$BUILD_TAG --build-arg dnxcache=$DNX_CACHE --build-arg dnxcacheindocker=$DNX_CACHE_IN_DOCKER -t shch/tips .
-
+        - docker run --name loadcache shch/tips echo hello
+        - docker cp loadcache:$DNX_CACHE_IN_DOCKER $DNX_CACHE
+        
 test:
     override:
-        - docker run --name unitTest shch/tips dnx -p test/TipsWeb.test/project.json test -parallel none
+        - docker run shch/tips dnx -p test/TipsWeb.test/project.json test -parallel none
         - echo $BUILD_TAG
         - echo $CIRCLE_BRANCH
         - echo $CIRCLE_SHA1
-        - docker cp unitTest:$DNX_CACHE_IN_DOCKER $DNX_CACHE
+
 
 deployment:
     hub:
