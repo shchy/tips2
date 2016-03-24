@@ -30,5 +30,4 @@ deployment:
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
             - docker tag shch/tips shch/tips:$BUILD_TAG
-            - docker tag shch/tips shch/tips:latest
             - docker push shch/tips

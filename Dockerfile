@@ -8,7 +8,8 @@ ENV DNX_CAHCE=$dnxcache
 COPY . /app
 WORKDIR /app
 
-COPY $DNX_CAHCE /root/.dnx/packages
+#COPY $DNX_CAHCE /root/.dnx/packages
+VOLUME /root/.dnx/packages
 
 RUN ["dnu", "restore"]
 
