@@ -4,7 +4,7 @@ using System.Linq;
 using Xunit;
 using tips2.Models;
 
-namespace test
+namespace TipsWeb.test
 {
     using A = tips2.Models.Test;
 
