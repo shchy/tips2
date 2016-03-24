@@ -13,7 +13,8 @@ dnx -p src/TipsWeb/project.json web
 ```
 git clone https://github.com/shchy/tips2.git
 cd tips2
-docker build -t tips2 .
-mkdir /var/lib/sqlite
-docker run -d -p 80:5000 -v /var/lib/sqlite:/app/data tips2
+docker build --build-arg tag=foobar -t tips2 .
+mkdir -p /var/lib/sqlite
+mkdir -p /var/lib/Migrations
+docker run -d -p 80:5000 -v /var/lib/sqlite:/app/data -v /var/lib/Migrations:/app/src/TipsWeb/Migrations tips2
 ```
