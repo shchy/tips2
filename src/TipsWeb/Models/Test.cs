@@ -8,7 +8,8 @@ namespace tips2.Models
 {
     public class Test
     {
-      public int Id { get; set;}
-      public string Name { get; set; }
+        public int Id { get; set;}
+        public string Name { get; set; }
+        public double Value { get; set; }
     }
 }
