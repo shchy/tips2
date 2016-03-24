@@ -9,20 +9,22 @@ machine:
     environment:
         BUILD_TAG: ${CIRCLE_BRANCH}_${CIRCLE_SHA1}
         DNX_CACHE: "~/.dnxcache"
+        DNX_CACHE_IN_DOCKER: "/root/.dnx/packages"
 
 dependencies:
     cache_directories:
         - $DNX_CACHE
     pre:
         - mkdir -p $DNX_CACHE
-        - docker build --build-arg tag=$BUILD_TAG --build-arg dnxcache=$DNX_CACHE -t shch/tips .
+        - docker build --build-arg tag=$BUILD_TAG --build-arg dnxcache=$DNX_CACHE --build-arg dnxcacheindocker=$DNX_CACHE_IN_DOCKER -t shch/tips .
 
 test:
     override:
-        - docker run shch/tips dnx -p test/TipsWeb.test/project.json test -parallel none
+        - docker run --name unitTest shch/tips dnx -p test/TipsWeb.test/project.json test -parallel none
         - echo $BUILD_TAG
         - echo $CIRCLE_BRANCH
         - echo $CIRCLE_SHA1
+        - docker cp unitTest:$DNX_CACHE_IN_DOCKER $DNX_CACHE
 
 deployment:
     hub:
