@@ -3,7 +3,7 @@ FROM microsoft/aspnet:1.0.0-rc1-update1
 ARG tag
 ARG dnxcache
 ENV TAG=$tag
-DNX_CAHCE=$dnxcache
+ENV DNX_CAHCE=$dnxcache
 
 COPY . /app
 WORKDIR /app
