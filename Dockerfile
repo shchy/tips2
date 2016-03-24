@@ -9,6 +9,6 @@ WORKDIR /app
 RUN ["dnu", "restore"]
 
 EXPOSE 5000
-CMD dnx -p src/TipsWeb/project.json ef migrations add ${TAG} && \
+CMD dnx -p src/TipsWeb/project.json ef migrations add "${TAG}" && \
     dnx -p src/TipsWeb/project.json ef database update && \
     dnx -p src/TipsWeb/project.json web

@@ -6,20 +6,25 @@ machine:
         - sudo chmod 0755 /usr/bin/docker
     services:
         - docker
+    environment:
+        BUILD_TAG: ${CIRCLE_BRANCH}_${CIRCLE_SHA1}
 
 dependencies:
     cache_directories:
         - "~/cache"
     pre:
-        - docker build --build-arg tag=$CIRCLE_TAG -t shch/tips:$CIRCLE_TAG .
+        - docker build --build-arg tag=$BUILD_TAG -t shch/tips:$BUILD_TAG .
 
 test:
     override:
-        - docker run shch/tips:$CIRCLE_TAG dnx -p test/TipsWeb.test/project.json test -parallel none
+        - docker run shch/tips:$BUILD_TAG dnx -p test/TipsWeb.test/project.json test -parallel none
+        - echo $BUILD_TAG
+        - echo $CIRCLE_BRANCH
+        - echo $CIRCLE_SHA1
 
 deployment:
     hub:
         branch: master
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-            - docker push shch/tips:$CIRCLE_TAG
+            - docker push shch/tips:$BUILD_TAG
