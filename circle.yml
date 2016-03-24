@@ -22,10 +22,9 @@ dependencies:
 
 test:
     override:
+        - docker run shch/tips dnu build src/TipsWeb/
+        - docker run shch/tips dnu build test/TipsWeb.test/
         - docker run shch/tips dnx -p test/TipsWeb.test/project.json test -parallel none
-        - echo $BUILD_TAG
-        - echo $CIRCLE_BRANCH
-        - echo $CIRCLE_SHA1
 
 deployment:
     hub:
