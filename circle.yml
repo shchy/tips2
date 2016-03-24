@@ -8,7 +8,7 @@ machine:
         - docker
     environment:
         BUILD_TAG: ${CIRCLE_BRANCH}_${CIRCLE_SHA1}
-        DNX_CACHE: ".dnxcache"
+        DNX_CACHE: "~/.dnxcache"
 
 dependencies:
     cache_directories:
