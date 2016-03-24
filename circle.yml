@@ -15,11 +15,11 @@ dependencies:
 
 test:
     override:
-        - docker run shch/tips:CIRCLE_TAG dnx -p test/TipsWeb.test/project.json test -parallel none
+        - docker run shch/tips:$CIRCLE_TAG dnx -p test/TipsWeb.test/project.json test -parallel none
 
 deployment:
     hub:
         branch: master
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-            - docker push shch/tips:CIRCLE_TAG
+            - docker push shch/tips:$CIRCLE_TAG
