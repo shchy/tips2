@@ -1,0 +1,6 @@
+WEBAPP_PATH="src/TipsWeb"
+TESTAPP_PATH="test/TipsWeb.test"
+
+dnu restore
+dnu build ${WEBAPP_PATH}
+dnu build ${TESTAPP_PATH}

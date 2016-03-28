@@ -22,9 +22,8 @@ dependencies:
 
 test:
     override:
-        - docker run shch/tips dnu build src/TipsWeb/
-        - docker run shch/tips dnu build test/TipsWeb.test/
-        - docker run shch/tips dnx -p test/TipsWeb.test/project.json test -parallel none
+        - docker run shch/tips scripts/build
+        - docker run shch/tips scripts/startTest
 
 deployment:
     hub:

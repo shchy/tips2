@@ -18,3 +18,4 @@ else
 fi
 
 dnx -p ${WEBAPP_PATH}/project.json web
+

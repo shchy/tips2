@@ -15,4 +15,4 @@ WORKDIR /app
 RUN ["dnu", "restore"]
 
 EXPOSE 5000
-CMD sh start.sh "${TAG}"
+CMD sh scripts/start "${TAG}"

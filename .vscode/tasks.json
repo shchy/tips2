@@ -1,0 +1,35 @@
+{
+	"version": "0.1.0",
+    "windows": {
+        "command": "cmd"    
+    },
+    "osx": {
+	    "command": "sh"  
+    },
+    "linux": {
+        "command": "sh"
+    },
+	"isShellCommand": true,
+	"showOutput": "always",
+	"args": ["-C"],
+    "tasks": [
+        { 
+            "taskName": "buildWeb"
+            , "suppressTaskName": true
+            , "isBuildCommand": true
+            , "args": [ "scripts/build" ]
+        },
+        { 
+            "taskName": "run"
+            , "suppressTaskName": true
+            , "args": [ "scripts/start", "test" ]
+        },
+        { 
+            "taskName": "testTips"
+            , "suppressTaskName": true
+            , "isTestCommand": true
+            , "args": [ "scripts/startTest" ]
+        }
+        
+    ]
+}
