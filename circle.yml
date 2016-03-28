@@ -22,8 +22,8 @@ dependencies:
 
 test:
     override:
-        - docker run shch/tips scripts/build
-        - docker run shch/tips scripts/startTest
+        - docker run shch/tips sh scripts/build
+        - docker run shch/tips sh scripts/startTest
 
 deployment:
     hub:
