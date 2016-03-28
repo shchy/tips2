@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using Nancy;
-using tips2.Models;
+using tips.Models;
 
-namespace tips2.Modules
+namespace tips.Modules
 {
     public class HomeModule : NancyModule
     {

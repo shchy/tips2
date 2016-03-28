@@ -7,7 +7,7 @@ using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Extensions.Configuration;
 
-namespace tips2.Models
+namespace tips.Models
 {
     public class ModelContext : DbContext
     {

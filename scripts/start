@@ -1,6 +1,6 @@
 
 MIGRATION_TAG=$1
-WEBAPP_PATH="src/TipsWeb"
+WEBAPP_PATH="."
 MIGRATIONS_PATH="${WEBAPP_PATH}/Migrations"
 FINDED=0
 
@@ -13,6 +13,7 @@ done
 if [ $FINDED = 1 ]; then
     echo "Already Exists Migrations"
 else
+    mkdir -p data
     dnx -p ${WEBAPP_PATH}/project.json ef migrations add ${MIGRATION_TAG}
     dnx -p ${WEBAPP_PATH}/project.json ef database update
 fi

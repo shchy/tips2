@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Data.Entity;
-using tips2.Models;
+using tips.Models;
 using Nancy;
 using Microsoft.Extensions.PlatformAbstractions;
 using StructureMap;
 using Microsoft.AspNet.Hosting;
 
-namespace tips2
+namespace tips
 {
     public class Startup
     {
