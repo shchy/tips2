@@ -1,1 +1,1 @@
-dnx -p test/TipsWeb.test/ test -parallel none
+dnx test -parallel none

@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using tips2.Models;
+using tips.Models;
 
-namespace TipsWeb.test
+namespace tips.Tests
 {
-    using A = tips2.Models.Test;
+    using A = tips.Models.Test;
 
     // see example explanation on xUnit.net website:
     // https://xunit.github.io/docs/getting-started-dnx.html
