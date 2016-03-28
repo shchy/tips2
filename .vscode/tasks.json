@@ -1,18 +1,35 @@
 {
 	"version": "0.1.0",
+    "isShellCommand": true,
+	"showOutput": "always",
     "windows": {
-        "command": "cmd"    
+        "command": "cmd",
+        "args": ["/c"],
+        "tasks": [
+        { 
+            "taskName": "buildWeb"
+            , "suppressTaskName": true
+            , "isBuildCommand": true
+            , "args": [ "scripts\\build.cmd" ]
+        },
+        { 
+            "taskName": "run"
+            , "suppressTaskName": true
+            , "args": [ "scripts\\start.cmd", "test" ]
+        },
+        { 
+            "taskName": "testTips"
+            , "suppressTaskName": true
+            , "isTestCommand": true
+            , "args": [ "scripts\\startTest" ]
+        }
+        
+    ]
     },
     "osx": {
-	    "command": "sh"  
-    },
-    "linux": {
-        "command": "sh"
-    },
-	"isShellCommand": true,
-	"showOutput": "always",
-	"args": ["-C"],
-    "tasks": [
+	    "command": "sh",
+        "args": ["-C"],
+        "tasks": [
         { 
             "taskName": "buildWeb"
             , "suppressTaskName": true
@@ -31,5 +48,6 @@
             , "args": [ "scripts/startTest" ]
         }
         
-    ]
+    ]  
+    }
 }
